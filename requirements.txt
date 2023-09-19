@@ -1,0 +1,10 @@
+tqdm
+numpy
+scipy
+pybullet
+matplotlib
+tensorboard
+scikit_image
+open3d==0.12.0
+opencv_python>=4.5.4
+pyrealsense2==2.53.1.4623

@@ -1,0 +1,22 @@
+{
+    "intrinsic": {
+        "width": 640,
+        "height": 480,
+        "K": [
+            615.7113037109375,
+            0.0,
+            315.79901123046875,
+            0.0,
+            615.755615234375,
+            248.1492462158203,
+            0.0,
+            0.0,
+            1.0
+        ]
+    },
+    "detector": "SIFT",
+    "ransac": true,
+    "checkpoint": "checkpoints/cns.pth",
+    "device": "cuda:0",
+    "visualize": "MATCH"
+}
