@@ -4,7 +4,9 @@
 
 This is the official implementation of our paper "CNS: Correspondence Encoded Neural Image Servo Policy". We present a graph neural network based solution for image servo utilizing explicit keypoints correspondence obtained from any detector-based feature matching methods, such as SIFT, AKAZE, ORB, SuperGlue and etc. 
 
+<p align="center">
 <img src="README.assets/cns_pipeline.png" width="500">
+</p>
 
 Our model achieves <0.3° and sub-millimeter precision in real-world experiments (mean distance to target ≈ 0.275m) and runs in real-time (~40 fps with ORB as front-end).
 
