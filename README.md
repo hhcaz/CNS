@@ -26,7 +26,7 @@ We provide the pre-trained model in `checkpoints` folder. See demo in script `de
   pip install tqdm numpy scipy pybullet matplotlib tensorboard scikit-image open3d>=0.12.0 opencv-python>=4.8.0 pyrealsense2==2.53.1.4623
   ```
 
-* (Optional, YCB objects)  If you want to use the same simulation environment setup ${\rm E}_{\rm render}$ as this work, you need to download the YCB object models from [this repo]((https://github.com/eleramp/pybullet-object-models)) and put them in folder `cns/thirdparty/`:
+* (Optional, YCB objects)  If you want to use the same simulation environment setup ${\rm E}_{\rm render}$ as this work, you need to download the YCB object models from [this repo](https://github.com/eleramp/pybullet-object-models) and put them in folder `cns/thirdparty/`:
 
   ```
   cd cns/thirdparty
@@ -42,7 +42,7 @@ We provide the pre-trained model in `checkpoints` folder. See demo in script `de
   python prepare_superglue.py
   ```
 
-  **Note:** the original implementation of SuperGlue may fail with large in-plane rotation. We follow the solution in [this issue](https://github.com/magicleap/SuperGluePretrainedNetwork/issues/59) to rotate the desired image multiple times for matching and then rotate the matched keypoints back. Thanks to the scripts provided by [kyuhyoung](https://github.com/kyuhyoung/SuperGluePretrainedNetwork). 
+  **Note:** the original implementation of SuperGlue may fail with large in-plane rotation. We follow the solution in [this issue](https://github.com/magicleap/SuperGluePretrainedNetwork/issues/59) to rotate the desired image multiple times for matching and then rotate the matched keypoints back. Thanks to [kyuhyoung](https://github.com/kyuhyoung/SuperGluePretrainedNetwork) for providing scripts. 
 
   When initializing the front-end, you need to specify `detector="SuperGlue:0123"` to enable this feature. (`SuperGlue:0123` uses images rotated 3 times, `SuperGlue:02` uses the original image and image rotated by 180°, `SuperGlue` uses original image only.)
 
