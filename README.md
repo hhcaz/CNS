@@ -38,13 +38,12 @@ We provide the pre-trained model in `checkpoints` folder. See demo in script `de
   ```
   cd cns/thirdparty
   git clone https://github.com/magicleap/SuperGluePretrainedNetwork.git
-  cd SuperGluePretrainedNetwork
   python prepare_superglue.py
   ```
-
-  **Note:** the original implementation of SuperGlue may fail with large in-plane rotation. We follow the solution in [this issue](https://github.com/magicleap/SuperGluePretrainedNetwork/issues/59) to rotate the desired image multiple times for matching and then rotate the matched keypoints back. Thanks to [kyuhyoung](https://github.com/kyuhyoung/SuperGluePretrainedNetwork) for providing scripts. 
-
-  When initializing the front-end, you need to specify `detector="SuperGlue:0123"` to enable this feature. (`SuperGlue:0123` uses images rotated 3 times, `SuperGlue:02` uses the original image and image rotated by 180°, `SuperGlue` uses original image only.)
+  
+**Note:** the original implementation of SuperGlue may fail with large in-plane rotation. We follow the solution in [this issue](https://github.com/magicleap/SuperGluePretrainedNetwork/issues/59) to rotate the desired image multiple times for matching and then rotate the matched keypoints back. Thanks to [kyuhyoung](https://github.com/kyuhyoung/SuperGluePretrainedNetwork) for providing scripts. 
+  
+When initializing the front-end, you need to specify `detector="SuperGlue:0123"` to enable this feature. (`SuperGlue:0123` uses images rotated 3 times, `SuperGlue:02` uses the original image and image rotated by 180°, `SuperGlue` uses original image only.)
 
 
 
