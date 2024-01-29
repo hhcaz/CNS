@@ -16,7 +16,8 @@ def run_demo():
     pipeline = CorrespondenceBasedPipeline(
         detector="AKAZE",
         # detector="SuperGlue:0123",
-        ckpt_path="checkpoints/cns.pth",
+        # ckpt_path="checkpoints/cns.pth",
+        ckpt_path="checkpoints/cns_state_dict.pth",
         intrinsic=CameraIntrinsic.default(),
         device="cuda:0",
         ransac=True,
