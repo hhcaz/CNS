@@ -10,7 +10,13 @@ from ..ablation.ibvs.ibvs import IBVS
 class GraphVSController(object):
     def __init__(self, ckpt_path: str, device="cuda:0"):
         self.device = torch.device(device)
-        self.net: GraphVS = torch.load(ckpt_path, map_location=self.device)["net"]
+        # self.net: GraphVS = torch.load(ckpt_path, map_location=self.device)["net"]
+        ckpt = torch.load(ckpt_path, map_location=self.device)
+        if hasattr(ckpt, "net") and isinstance(ckpt["net"], torch.nn.Module):
+            self.net: GraphVS = ckpt["net"]
+        else:
+            self.net = GraphVS(2, 2, 128, regress_norm=True).to(device)
+            self.net.load_state_dict(ckpt)
         self.net.eval()
         self.hidden = None
 
