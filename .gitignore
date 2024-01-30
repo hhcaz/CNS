@@ -151,6 +151,7 @@ dmypy.json
 # model checkpoints and tf records
 checkpoints/*
 !checkpoints/cns*.pth
+!checkpoints/*json
 logs/
 runs/
 temp/
