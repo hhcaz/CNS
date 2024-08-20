@@ -108,7 +108,16 @@ class Camera(object):
             physicsClientId=client
         )
 
-        rgb, z_buffer = np.ascontiguousarray(result[2][:, :, :3]), result[3]
+        # rgb, z_buffer = np.ascontiguousarray(result[2][:, :, :3]), result[3]
+        if isinstance(result[2], np.ndarray):
+            rgb, z_buffer = np.ascontiguousarray(result[2][:, :, :3]), result[3]
+        else:
+            # fix issue #2: https://github.com/hhcaz/CNS/issues/2
+            H, W = self.intrinsic.height, self.intrinsic.width
+            rgb = np.ascontiguousarray(np.asarray(result[2]).reshape(H, W, -1)[:, :, :3])
+            z_buffer = np.asarray(result[3]).reshape(H, W).astype(np.float32)
+            rgb = rgb.astype(np.uint8)
+        
         depth = (
             1.0 * self.far * self.near / (self.far - (self.far - self.near) * z_buffer)
         )
